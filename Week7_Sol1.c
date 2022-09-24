@@ -1,22 +1,13 @@
 #include <stdio.h>
-unsigned long fibonacci(int number)
-{
-    if(number == 0)
-    {
-      return 0;
-    }
-    else if(number == 1) {
-      return 1;
-    }
-    else
-    {
-      return (fibonacci(number-1) + fibonacci(number-2));
-    }
-}
-
 int main()
 {
-    int num;
+    int num, i;
+    unsigned long long result = 1, temp_1 = 1, temp_2 = 1;
     scanf("%d", &num);
-    printf("fibonacci of number %d = %d", num, fibonacci(num));
+    for(i = 0; i < num-1; i++){
+      result = temp_1 + temp_2;
+      temp_2 = temp_1;
+      temp_1 = result;
+    }
+    printf("fibonacci of number %d = %llu", num, result);
 }
